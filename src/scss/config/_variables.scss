@@ -1,0 +1,23 @@
+:root {
+    --font-main: "Raleway", sans-serif;
+
+    /** Colores principales **/
+    --bg-primary: #F8FFE5;
+    --color-primary: #333;
+
+    /** Header **/
+
+    --bg-header: var(--color-primary);
+    --color-header: var(--bg-primary);
+    --color-border-header: #ccc;
+    --h-header: 3rem;
+
+
+     
+}
+
+$breakpoints: (
+    s: 480px,
+    m: 768px,
+    l: 1024px
+)
