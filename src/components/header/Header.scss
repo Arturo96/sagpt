@@ -18,7 +18,6 @@
 
     @include mq(m) {
         height: var(--h-header);
-
         &--wrapper {
             display: flex;
             height: 100%;
