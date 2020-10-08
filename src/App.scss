@@ -6,8 +6,12 @@
 
 
 /***** Componentes *****/
+@import './scss/config/utilities';
+@import './scss/components/Header';
+@import './scss/components/Footer';
 
-@import './components/header/Header.scss'
+/*** Secciones ***/
+@import './scss/pages/home';
 
 
 

@@ -17,6 +17,11 @@ body {
 	color: var(--color-primary);
 }
 
+h1 {
+	font-size: var(--fs-h1);
+	text-align: center;
+}
+
 ul {
 	list-style: none;
 }
@@ -24,6 +29,7 @@ ul {
 a {
 	text-decoration: none;
 	color: inherit;
+	transition: all .5s;
 }
 
 img {
@@ -38,7 +44,20 @@ input {
 	border-radius: 5px;
 	padding: .5rem;
 	width: 100%;
-
 }
 
+button {
+	border: none;
+	border-radius: 5px;
+	font-size: 1rem;
+	padding: .6em .75em;
+	transition: 
+		background-color .5s,
+		color .5s;
+	cursor: pointer;
+}
 
+main {
+	width: var(--w-content);
+	margin: 1.35rem auto;
+}

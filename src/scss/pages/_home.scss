@@ -1,0 +1,18 @@
+.home {
+
+    & > * {
+        margin-top: 1.25rem;
+    }
+
+    h2 {
+        font-size: var(--fs-h2);
+        text-align: center;
+    }
+
+    p {
+        font-size: var(--fs-p);
+        text-align: justify;
+        line-height: 1.5;
+        font-weight: 400;
+    }
+}

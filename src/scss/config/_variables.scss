@@ -1,23 +1,60 @@
+$breakpoints: (
+	s: 480px,
+	m: 768px,
+	l: 1024px
+);
+
 :root {
     --font-main: "Raleway", sans-serif;
 
-    /** Colores principales **/
-    --bg-primary: #F8FFE5;
-    --color-primary: #333;
+    /** H1 **/
 
-    /** Header **/
+    --fs-h1: 3em;
+    @include mq(m) {
+        --fs-h1: 4em;
+    }
 
-    --bg-header: var(--color-primary);
-    --color-header: var(--bg-primary);
-    --color-border-header: #ccc;
-    --h-header: 3rem;
+    @include mq(l) {
+        --fs-h1: 4.5em;
+    }
 
+    /** H2 **/
 
-     
+    --fs-h2: 1.5em;
+    @include mq(m) {
+        --fs-h2: 1.6em;
+    }
+
+    @include mq(l) {
+        --fs-h2: 1.7em;
+    }
+
+    /** p **/
+    --fs-p: 1.35em;
+    @include mq(m) {
+        --fs-p: 1.5em;
+    }
+
+    @include mq(l) {
+        --fs-p: 1.65em;
+    }
+
+	/** Colores principales **/
+	--bg-primary: #f8ffe5;
+	--color-primary: #333;
+
+	/** Header **/
+
+	--bg-header: var(--color-primary);
+	--color-header: var(--bg-primary);
+	--color-border-header: #ccc;
+	--h-header: 3rem;
+
+	/** Buttons **/
+
+    --bg-btn-signIn: #8AEA92;
+    
+    /** Content **/
+    --w-content: 90%;
 }
 
-$breakpoints: (
-    s: 480px,
-    m: 768px,
-    l: 1024px
-)
