@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.scss";
-import { Header } from "./components/header/Header";
-import { Footer } from "./components/footer/Footer";
+import { Header, loadHeader } from "./components/Header";
+import { Footer } from "./components/Footer";
 
 function App() {
 	return (
 		<>
-			<Header />
+			<Header test="Hola" />
 			<main className="content">
 				<article className="home">
 					<h1>Bienvenido a SAGPT!</h1>
@@ -20,3 +20,11 @@ function App() {
 }
 
 export default App;
+
+window.addEventListener('DOMContentLoaded', e => {
+	loadHeader();
+})
+
+
+
+

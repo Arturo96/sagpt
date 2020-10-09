@@ -29,11 +29,39 @@
 }
 
 .logo {
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
     margin-bottom: 0;
-    padding: .5rem 0;
+	padding: .5rem 2rem;
+	
+	@include mq(l) {
+		padding: .5rem 0;
+	}
+}
+
+.menu--toggle {
+
+	font-size: 1.5em;
+	cursor: pointer;
+
+	@include mq(l) {
+		display: none;
+	}
+}
+
+.menu--nav, .login {
+	display: none;
 }
 
 .menu--nav {
+
+	@include mq(l) {
+		display: block;
+	}
+
     &, * {
         height: 100%;
     }
