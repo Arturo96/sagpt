@@ -1,5 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { Login } from "./auth/Login";
+import { Logout } from "./auth/Logout";
 
 const d = document;
 
@@ -13,12 +16,9 @@ const toggleMenu = () => {
 };
 
 export const loadHeader = () => {
-	
 	window.addEventListener("resize", e => {
 		elementos = d.querySelectorAll("[data-display]");
-		console.log(elementos);
 		if (matchMedia("(min-width: 1024px)").matches) {
-			
 			elementos.forEach(el => {
 				if (el.classList.contains("show")) {
 					el.classList.remove("show");
@@ -28,13 +28,15 @@ export const loadHeader = () => {
 	});
 };
 
-export const Header = ({ test }) => {
+export const Header = () => {
+	const { uid } = useSelector(state => state.auth);
+
 	return (
 		<header className="header">
 			<div className="header--wrapper">
 				<div className="logo">
 					<h2>
-						<a href="./">SAGPT </a>
+						<Link to="/">SAGPT</Link>
 					</h2>
 					<span id="menuToggle" onClick={() => toggleMenu()} className="menu--toggle">
 						<i className="fas fa-bars"></i>
@@ -43,49 +45,44 @@ export const Header = ({ test }) => {
 				<nav className="menu--nav animate__animated animate__fadeInDown" data-display>
 					<ul className="menu">
 						<li className="menu--item">
-							<a href="./" className="menu--link">
+							<Link to="/" className="menu--link">
 								Inicio
-							</a>
+							</Link>
 						</li>
 						<li className="menu--item">
-							<a href="./" className="menu--link">
+							<Link to="/about" className="menu--link">
 								Quienes somos
-							</a>
+							</Link>
 						</li>
 						<li className="menu--item">
-							<a href="./" className="menu--link">
-								Servicios
-							</a>
+							<Link to="/products" className="menu--link">
+								Productos
+							</Link>
 						</li>
 						<li className="menu--item">
-							<a href="./" className="menu--link">
+							<Link to="/contact" className="menu--link">
 								Contacto
-							</a>
+							</Link>
 						</li>
+						{!!uid && (
+							<>
+								<li className="menu--item">
+									<Link to="/customers" className="menu--link">
+										Clientes
+									</Link>
+								</li>
+								<li className="menu--item">
+									<Link to="/purchases" className="menu--link">
+										Compras
+									</Link>
+								</li>
+							</>
+						)}
 					</ul>
 				</nav>
-				<form
-					action=""
-					className="login animate__animated animate__fadeInDown"
-					id="login"
-					data-display
-				>
-					<div className="form-group">
-						<input type="email" placeholder="Email" />
-						<input type="password" placeholder="Password" />
-					</div>
 
-					<button type="submit">Sign in</button>
-				</form>
+				{!!uid ? <Logout /> : <Login />}
 			</div>
 		</header>
 	);
-};
-
-Header.propTypes = {
-	test: PropTypes.string.isRequired
-};
-
-Header.defaultProps = {
-	test2: "Test"
 };

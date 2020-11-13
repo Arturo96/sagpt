@@ -1,0 +1,17 @@
+/***** Estilos generales *****/
+
+@import './config/mixins';
+@import './config/variables';
+@import './config/base';
+
+
+/***** Componentes *****/
+@import './config/utilities';
+@import './components/Header';
+@import './components/Footer';
+
+/*** Secciones ***/
+@import './pages/home';
+
+
+

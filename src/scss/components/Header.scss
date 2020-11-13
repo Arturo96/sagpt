@@ -11,7 +11,7 @@
 		margin: 0 auto;
 
 		@include mq(l) {
-            max-width: 95%;
+			max-width: 95%;
 			display: flex;
 			height: 100%;
 			justify-content: space-evenly;
@@ -29,21 +29,19 @@
 }
 
 .logo {
-
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 
-    margin-bottom: 0;
-	padding: .5rem 2rem;
-	
+	margin-bottom: 0;
+	padding: 0.5rem 2rem;
+
 	@include mq(l) {
-		padding: .5rem 0;
+		padding: 0.5rem 0;
 	}
 }
 
 .menu--toggle {
-
 	font-size: 1.5em;
 	cursor: pointer;
 
@@ -52,62 +50,64 @@
 	}
 }
 
-.menu--nav, .login {
+.menu--nav,
+.login {
 	display: none;
 }
 
 .menu--nav {
-
 	@include mq(l) {
 		display: block;
 	}
 
-    &, * {
-        height: 100%;
-    }
+	&,
+	* {
+		height: 100%;
+	}
 }
 
 .menu {
+	@include mq(l) {
+		@include flexCenter();
+	}
 
-    @include mq(l) {
-        @include flexCenter();
-    }
+	&--item {
+		transition: all 0.25s;
 
-    &--item:hover {
-        background-color: var(--bg-primary);
-        color: var(--color-primary);
-    }
+		&:hover {
+			background-color: var(--bg-primary);
+			color: var(--color-primary);
+		}
+	}
 
-    &--link {
-        display: block;
-        padding: .35rem;
+	&--link {
+		display: block;
+		padding: 0.35rem;
 
-        @include mq(l) {
-            padding: 0 .75em;
-            @include flexCenter();
-        }
-    }
+		@include mq(l) {
+			padding: 0 0.75em;
+			@include flexCenter();
+		}
+	}
 }
 
 .login {
-
-    width: 90%;
-    margin: 0 auto;
+	width: 90%;
+	margin: 0 auto;
 
 	@include mq(l) {
-        margin: initial;
-        width: auto;
+		margin: initial;
+		width: auto;
 		display: flex;
 		align-items: center;
 	}
 
 	button {
-        background-color: var(--bg-btn-signIn);
-        margin-left: .25rem;
+		background-color: var(--bg-btn-signIn);
+		margin-left: 0.25rem;
 	}
 
 	.form-group {
-
 		@include mq(m) {
 			display: flex;
 			align-items: center;
@@ -133,7 +133,35 @@
 		@include mq(l) {
 			margin-bottom: 0;
 		}
-    }
-    
-   
+	}
+}
+
+.logout {
+	display: none;
+
+	& > * {
+		margin-bottom: 1rem;
+	}
+
+	@include mq(l) {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		& > * {
+			margin-bottom: 0;
+		}
+	}
+
+	button {
+		background-color: $bg-btn-logout;
+		
+		&:hover {
+			background-color: darken($bg-btn-logout, 10);
+		}
+
+		@include mq(l) {
+			margin-left: 1rem;
+		}
+	}
 }

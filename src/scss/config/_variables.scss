@@ -4,6 +4,8 @@ $breakpoints: (
 	l: 1024px
 );
 
+$bg-btn-logout: #f57c00;
+    
 :root {
     --font-main: "Raleway", sans-serif;
 
@@ -53,6 +55,8 @@ $breakpoints: (
 	/** Buttons **/
 
     --bg-btn-signIn: #8AEA92;
+    --bg-btn-logout: #f57c00;
+
     
     /** Content **/
     --w-content: 90%;
