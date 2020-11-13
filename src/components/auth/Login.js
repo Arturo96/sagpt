@@ -5,8 +5,8 @@ import { useForm } from "../../hooks/useForm";
 
 export const Login = () => {
 	const [formValues, handleInputChange] = useForm({
-			email: "",
-			password: ""
+			email: "carlos@gmail.com",
+			password: "1234"
 		}),
 		{ email, password } = formValues;
 

@@ -31,6 +31,17 @@ $bg-btn-logout: #f57c00;
         --fs-h2: 1.7em;
     }
 
+    /** H4 **/
+
+    --fs-h4: 2.25em;
+    @include mq(m) {
+        --fs-h4: 2.5em;
+    }
+
+    @include mq(l) {
+        --fs-h4: 2.75em;
+    }
+
     /** p **/
     --fs-p: 1.35em;
     @include mq(m) {
