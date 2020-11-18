@@ -53,7 +53,7 @@ input {
 }
 
 select {
-	background-color: #fafafa;
+	background-color: #fff;
 	border: thin solid var(--color-border-header);
 	border-radius: 3px;
 	display: block;
@@ -123,13 +123,30 @@ main {
 	transition: background-color 0.5s, color 0.5s;
 	cursor: pointer;
 
-
 	&--primary {
 		background-color: var(--bg-btn-primary);
 		color: var(--text-btn-primary);
 
 		&:hover {
 			background-color: darken($bg-btn-primary, 15);
+		}
+	}
+
+	&--secondary {
+		background-color: $bg-btn-secondary;
+		color: var(--text-btn-primary);
+
+		&:hover {
+			background-color: darken($bg-btn-secondary, 15);
+		}
+	}
+
+	&--cta {
+		background-color: $bg-btn-cta;
+		color: var(--text-btn-primary);
+
+		&:hover {
+			background-color: darken($bg-btn-cta, 15);
 		}
 	}
 }

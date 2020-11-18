@@ -1,6 +1,7 @@
 .buy {
     margin: 1rem auto;
     max-width: 500px;
+
     label {
         display: block;
         margin-bottom: .75rem;
@@ -9,4 +10,17 @@
     input, select {
         margin-top: .35rem;
     }
+
+    &--actions {
+        // display: flex;
+
+        button {
+            width: 100%;
+            margin-bottom: 1rem;;
+        }
+    }
+}
+
+.txtUnit {
+    max-width: 220px;
 }

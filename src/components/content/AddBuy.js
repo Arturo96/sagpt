@@ -28,7 +28,7 @@ export const AddBuy = () => {
 				</label>
 				<label>
 					Email
-					<input type="text" className="txtEmail" />
+					<input type="email" className="txtEmail" />
 				</label>
 
 				<div className="buy--products">
@@ -41,8 +41,13 @@ export const AddBuy = () => {
 						</select>
 					</label>
 					<label>Unidades compradas
-						<input type="number" name="" id="" />
+						<input type="number" className="txtUnit" />
 					</label>
+				</div>
+
+				<div className="buy--actions">
+					<button className="btn btn--secondary">Agregar producto</button>
+					<button className="btn btn--cta">Ingresar compra</button>
 				</div>
 			</form>
 		</div>
