@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { startLogout } from '../../actions/auth';
+import { cleanCustomers } from '../../actions/customer';
 
 export const Logout = () => {
 
@@ -8,6 +9,7 @@ export const Logout = () => {
 
     const handleLogout = () => {
         dispatch(startLogout());
+        dispatch(cleanCustomers());
     }
 
     return (

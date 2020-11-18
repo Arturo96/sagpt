@@ -15,6 +15,7 @@ import { useEffect } from "react";
 import {firebase} from '../firebase/firebase-config';
 import { login } from "../actions/auth";
 import { useState } from "react";
+import { startLoadingCustomers } from "../actions/customer";
 
 export const AppRouter = () => {
 
@@ -26,7 +27,10 @@ export const AppRouter = () => {
 
 	useEffect(() => {
 		firebase.auth().onAuthStateChanged((user) => {
-			if(user?.uid) dispatch(login(user))
+			if(user?.uid) {
+				dispatch(login(user));
+				dispatch(startLoadingCustomers());
+			} 
 
 			setChecking(false);
 		})

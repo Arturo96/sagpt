@@ -32,6 +32,7 @@ export const Login = () => {
 					name="email"
 					onChange={handleInputChange}
 					value={email}
+					required
 				/>
 				<input
 					type="password"
@@ -39,6 +40,7 @@ export const Login = () => {
 					name="password"
 					onChange={handleInputChange}
 					value={password}
+					required
 				/>
 			</div>
 
