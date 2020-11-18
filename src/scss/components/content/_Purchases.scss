@@ -1,0 +1,13 @@
+.purchases {
+    button {
+        background-color: $bg-btn-logout;
+
+        &:hover {
+			background-color: darken($bg-btn-logout, 10);
+		}
+    }
+}
+
+.addBuy {
+    margin: 1rem auto;
+}

@@ -1,0 +1,12 @@
+.buy {
+    margin: 1rem auto;
+    max-width: 500px;
+    label {
+        display: block;
+        margin-bottom: .75rem;
+    }
+
+    input, select {
+        margin-top: .35rem;
+    }
+}

@@ -8,12 +8,32 @@ import { Products } from "../components/content/Products";
 import { Contact } from "../components/content/Contact";
 import {Customers} from '../components/content/Customers';
 import {Purchases} from '../components/content/Purchases';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { PrivateRoute } from "./PrivateRoute";
+import { AddBuy } from "../components/content/AddBuy";
+import { useEffect } from "react";
+import {firebase} from '../firebase/firebase-config';
+import { login } from "../actions/auth";
+import { useState } from "react";
 
 export const AppRouter = () => {
 
 	const {uid} = useSelector(state => state.auth)
+
+	const dispatch = useDispatch();
+
+	const [checking, setChecking] = useState(true)
+
+	useEffect(() => {
+		firebase.auth().onAuthStateChanged((user) => {
+			if(user?.uid) dispatch(login(user))
+
+			setChecking(false);
+		})
+
+	}, [dispatch, setChecking])
+
+	if (checking) return <h2>Loading...</h2>
 
 	return (
 		<Router>
@@ -27,6 +47,7 @@ export const AppRouter = () => {
 						<Route exact path="/contact" component={Contact} />
 						<PrivateRoute exact path="/customers" isLogged={!!uid} component={Customers} />
 						<PrivateRoute exact path="/purchases" isLogged={!!uid} component={Purchases} />
+						<PrivateRoute exact path="/addBuy" isLogged={!!uid} component={AddBuy} />
 						<Redirect to="/" />
 					</Switch>
 				</main>
