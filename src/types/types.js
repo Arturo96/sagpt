@@ -4,6 +4,9 @@ export const types = {
     authLogout: '[Auth] Logout',
 
     customerLoad: '[Customer] Load',
-    customerClean: '[Customer] Clean'
+    customerClean: '[Customer] Clean',
+
+    productLoad: '[Product] Load',
+    productClean: '[Product] Clean'
 
 }

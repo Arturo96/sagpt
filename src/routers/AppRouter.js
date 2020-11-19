@@ -16,6 +16,7 @@ import {firebase} from '../firebase/firebase-config';
 import { login } from "../actions/auth";
 import { useState } from "react";
 import { startLoadingCustomers } from "../actions/customer";
+import { startLoadingProducts } from "../actions/product";
 
 export const AppRouter = () => {
 
@@ -23,13 +24,14 @@ export const AppRouter = () => {
 
 	const dispatch = useDispatch();
 
-	const [checking, setChecking] = useState(true)
+	const [checking, setChecking] = useState(true);
 
 	useEffect(() => {
 		firebase.auth().onAuthStateChanged((user) => {
 			if(user?.uid) {
 				dispatch(login(user));
 				dispatch(startLoadingCustomers());
+				dispatch(startLoadingProducts());
 			} 
 
 			setChecking(false);
