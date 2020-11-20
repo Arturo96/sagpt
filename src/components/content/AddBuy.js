@@ -15,7 +15,7 @@ export const AddBuy = () => {
 		}),
 		{ documento, nombres, apellidos, telefono, email } = formValues;
 
-	const [productsBuy, addProduct, updateProducts] = useFormArray([
+	const [productsBuy, addProduct, updateProducts, deleteProducts] = useFormArray([
 		{	
 			id: new Date().getTime(),
 			modelo: "Redmi Airdots",
@@ -87,32 +87,41 @@ export const AddBuy = () => {
 
 				<div className="buy--products">
 					{productsBuy.length > 0 &&
-						productsBuy.map((productBuy) => (
-							<div key={productBuy.id}>
-								<label>
-									Nombre del producto
-									<select name="modelo" 
-									data-id={productBuy.id}
-									onChange={updateProducts}>
-										{products.length > 0 &&
-											products.map(product => (
-												<option key={product.id} value={product.modelo}>
-													{product.modelo}
-												</option>
-											))}
-									</select>
-								</label>
-								<label>
-									Unidades compradas
-									<input
-										name="unidad"
+						productsBuy.map((productBuy, i) => (
+							<div key={productBuy.id} className="buy--product">
+								<div className="buy--product-body">
+									<label>
+										Nombre del producto
+										<select name="modelo" 
 										data-id={productBuy.id}
-										onChange={updateProducts}
-										type="number"
-										className="txtUnit"
-										value={productBuy.unidad}
-									/>
-								</label>
+										onChange={updateProducts}>
+											{products.length > 0 &&
+												products.map(product => (
+													<option key={product.id} value={product.modelo}>
+														{product.modelo}
+													</option>
+												))}
+										</select>
+									</label>
+									<label>
+										Unidades compradas
+										<input
+											name="unidad"
+											data-id={productBuy.id}
+											onChange={updateProducts}
+											type="number"
+											className="txtUnit"
+											value={productBuy.unidad}
+										/>
+									</label>
+								</div>
+								{i > 0 && 
+									<button 
+									onClick={deleteProducts}
+									data-id={productBuy.id}
+									className="btn btn--danger">Borrar producto</button>
+								}
+								
 							</div>
 						))}
 				</div>

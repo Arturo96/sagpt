@@ -149,4 +149,13 @@ main {
 			background-color: darken($bg-btn-cta, 15);
 		}
 	}
+
+	&--danger {
+		background-color: $bg-btn-danger;
+		color: var(--text-btn-primary);
+
+		&:hover {
+			background-color: darken($bg-btn-danger, 15);
+		}
+	}
 }

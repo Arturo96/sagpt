@@ -27,7 +27,14 @@ export const useFormArray = (initialState = {}) => {
 				Number(target.value) : target.value 
 			}
 			: p))
-    };
+	};
+	
+	const deleteProducts = ({ target }) => {
+		
+		const productID = Number(target.dataset.id);
+		
+		setValues(values.filter(p => p.id !== productID));
+	};
     
-    return [values, addProduct, updateProducts];
+    return [values, addProduct, updateProducts, deleteProducts];
 }

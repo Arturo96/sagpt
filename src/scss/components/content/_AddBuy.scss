@@ -12,12 +12,19 @@
     }
 
     &--actions {
-        // display: flex;
 
         button {
             width: 100%;
             margin-bottom: 1rem;;
         }
+    }
+
+    &--product {
+
+        button {
+            margin-bottom: 2rem;
+        }
+
     }
 }
 
