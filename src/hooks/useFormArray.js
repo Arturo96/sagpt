@@ -21,7 +21,11 @@ export const useFormArray = (initialState = {}) => {
 		
 		setValues(values.map(p => 
 			p.id === productID ? 
-			{...p, [target.name]: target.value }
+			{
+				...p, 
+				[target.name]: target.name === 'unidad' ? 
+				Number(target.value) : target.value 
+			}
 			: p))
     };
     

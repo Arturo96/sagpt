@@ -1,7 +1,7 @@
 import React from "react";
-import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useForm } from "../../hooks/useForm";
+import { useFormArray } from "../../hooks/useFormArray";
 
 export const AddBuy = () => {
 	const products = useSelector(state => state.products);
@@ -15,34 +15,13 @@ export const AddBuy = () => {
 		}),
 		{ documento, nombres, apellidos, telefono, email } = formValues;
 
-	const [productsBuy, setProductsBuy] = useState([
+	const [productsBuy, addProduct, updateProducts] = useFormArray([
 		{	
 			id: new Date().getTime(),
 			modelo: "Redmi Airdots",
 			unidad: 1
 		}
 	]);
-
-	const addProduct = () => {
-		setProductsBuy([
-			...productsBuy,
-			{
-				id: new Date().getTime(),
-				modelo: "Redmi Airdots",
-				unidad: 1
-			}
-		])
-	}
-
-	const updateProducts = ({ target }) => {
-		
-		const productID = Number(target.dataset.id);
-		
-		setProductsBuy(productsBuy.map(p => 
-			p.id === productID ? 
-			{...p, [target.name]: target.value }
-			: p))
-	};
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -139,7 +118,7 @@ export const AddBuy = () => {
 				</div>
 
 				<div className="buy--actions">
-					<button onClick={addProduct} className="btn btn--secondary">Agregar producto</button>
+					<button type="button" onClick={addProduct} className="btn btn--secondary">Agregar producto</button>
 					<button type="submit" className="btn btn--cta">
 						Ingresar compra
 					</button>
