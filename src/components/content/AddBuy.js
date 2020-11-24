@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
+import { addBuyDB } from "../../helpers/addBuy";
 import { useForm } from "../../hooks/useForm";
 import { useFormArray } from "../../hooks/useFormArray";
 
@@ -37,8 +38,13 @@ export const AddBuy = () => {
 			return;
 		} 
 
-		console.log(formValues);
-		console.log(productsBuy);
+		const buy = {
+			...formValues,
+			productos: productsBuy
+		}
+
+		addBuyDB(buy);
+
 	};
 
 	return (
@@ -54,7 +60,7 @@ export const AddBuy = () => {
 						onChange={handleInputChange}
 						value={documento}
 						className="txtDocumento"
-						autoComplete="off"
+						// autoComplete="off"
 						required
 					/>
 				</label>
@@ -68,7 +74,7 @@ export const AddBuy = () => {
 						onChange={handleInputChange}
 						value={nombres}
 						className="txtNombres"
-						autoComplete="off"
+						// autoComplete="off"
 						required
 					/>
 				</label>
@@ -82,7 +88,7 @@ export const AddBuy = () => {
 						onChange={handleInputChange}
 						value={apellidos}
 						className="txtApellidos"
-						autoComplete="off"
+						// autoComplete="off"
 						required
 					/>
 				</label>
@@ -96,7 +102,7 @@ export const AddBuy = () => {
 						onChange={handleInputChange}
 						value={telefono}
 						className="txtTelefono"
-						autoComplete="off"
+						// autoComplete="off"
 						required
 					/>
 				</label>
@@ -110,7 +116,7 @@ export const AddBuy = () => {
 						onChange={handleInputChange}
 						value={email}
 						className="txtEmail"
-						autoComplete="off"
+						// autoComplete="off"
 						required
 					/>
 				</label>

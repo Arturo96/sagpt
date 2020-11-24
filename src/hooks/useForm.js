@@ -57,7 +57,7 @@ export const useForm = (initialState = {}) => {
 
                 if(!regExp.test(target.value)) return;
 
-                if(target.name === 'documento' && (target.value.length < 10 || target.value.length > 11)) bandera = false;
+                if(target.name === 'documento' && (target.value.length < 8 || target.value.length > 11)) bandera = false;
 
                 if(target.name === 'telefono' && (target.value.length < 7 || target.value.length > 10)) bandera = false;
             } 
