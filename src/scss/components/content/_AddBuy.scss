@@ -21,8 +21,20 @@
 
     &--product {
 
+        @include mq(s) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+
         button {
             margin-bottom: 2rem;
+
+            @include mq(s) {
+                margin-bottom: 0;
+                margin-right: 5rem;
+            }
         }
 
     }
