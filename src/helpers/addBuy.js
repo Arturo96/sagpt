@@ -20,7 +20,10 @@ export const addBuyDB = async( buy, productsDB ) => {
     productos = productos.map(p => {
         const productDB = productsDB.find(pDB => pDB.modelo === p.modelo);
 
-        return {...p, precio: productDB ? productDB.precio : null}
+        return {...p,
+            id: productDB ? productDB.id : null,
+            precio: productDB ? productDB.precio : null
+        }
     });
 
     console.log(productos);
@@ -34,8 +37,18 @@ export const addBuyDB = async( buy, productsDB ) => {
         fecha: firebase.firestore.Timestamp.fromDate(new Date())
     }
 
-    console.log(nuevaFactura);
+    const facturaDB = await db.collection('facturas').add(nuevaFactura);
 
-    await db.collection('facturas').add(nuevaFactura);
+    productos.forEach(async p => {
+
+        const detalleFactura = {
+            producto: db.doc(`productos/${p.id}`),
+            cantidad: p.unidad
+        }
+
+        await db.collection(`facturas/${facturaDB.id}/productosFactura`).add(detalleFactura);
+        
+    });
+    
 
 }
