@@ -1,10 +1,10 @@
-import { db } from "../firebase/firebase-config";
+import { db, firebase } from "../firebase/firebase-config";
 
-export const addBuyDB = async( buy ) => {
+export const addBuyDB = async( buy, productsDB ) => {
 
     const clientesRef = db.collection('clientes');
 
-    const {documento, nombres, apellidos, telefono, email, productos} = buy,
+    let {documento, nombres, apellidos, telefono, email, productos} = buy,
         nuevoCliente = { documento, nombres, apellidos, telefono, email};
 
     let cliente = await clientesRef.where('documento', '==', documento).get(),
@@ -17,8 +17,25 @@ export const addBuyDB = async( buy ) => {
         clienteID = cliente.docs[0].id;
     }
 
-    console.log(clienteID);
+    productos = productos.map(p => {
+        const productDB = productsDB.find(pDB => pDB.modelo === p.modelo);
 
-   
+        return {...p, precio: productDB ? productDB.precio : null}
+    });
+
+    console.log(productos);
+    let costoTotal = 0;
+
+    productos.forEach(p => costoTotal += p.precio * p.unidad);
+
+    const nuevaFactura = {
+        cliente: db.doc(`clientes/${clienteID}`),
+        costo: costoTotal,
+        fecha: firebase.firestore.Timestamp.fromDate(new Date())
+    }
+
+    console.log(nuevaFactura);
+
+    await db.collection('facturas').add(nuevaFactura);
 
 }

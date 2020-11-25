@@ -43,7 +43,7 @@ export const AddBuy = () => {
 			productos: productsBuy
 		}
 
-		addBuyDB(buy);
+		addBuyDB(buy, products);
 
 	};
 
